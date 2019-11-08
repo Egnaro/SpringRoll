@@ -43,8 +43,10 @@ export class Application {
   static uses(plugin: ApplicationPlugin): void
 }
 
+type ApplicationPluginOptions = { name: string }
+
 export interface ApplicationPlugin {
-  constructor(priority?: number)
+  constructor(options?: ApplicationPluginOptions)
   name: string;
   start(app: Application): void;
   preload(app: Application): Promise<any>;
